@@ -110,6 +110,10 @@
           </div>
         </div>
 
+        <div class="form-group row">
+          <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+        </div>
+
         {if isset($id_module)}
           <div class="form-group row">
             <div class="offset-md-3">

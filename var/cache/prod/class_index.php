@@ -2141,7 +2141,7 @@
   ),
   'OrderController' => 
   array (
-    'path' => NULL,
+    'path' => 'override/controllers/front/OrderController.php',
     'type' => 'class',
   ),
   'OrderControllerCore' => 
@@ -2741,7 +2741,7 @@
   ),
   'RegistrationController' => 
   array (
-    'path' => NULL,
+    'path' => 'override/controllers/front/RegistrationController.php',
     'type' => 'class',
   ),
   'RegistrationControllerCore' => 
