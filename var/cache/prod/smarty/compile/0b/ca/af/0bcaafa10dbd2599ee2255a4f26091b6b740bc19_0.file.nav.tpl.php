@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-02-21 09:10:28
+/* Smarty version 4.3.4, created on 2025-03-03 13:43:47
   from '/Applications/MAMP/htdocs/TiendaAbel/Backoffice/themes/default/template/nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67b834f42fe276_29749935',
+  'unifunc' => 'content_67c5a4036d1b20_24080008',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b834f42fe276_29749935 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5a4036d1b20_24080008 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Applications/MAMP/htdocs/TiendaAbel/vendor/smarty/smarty/libs/plugins/modifier.count.php','function'=>'smarty_modifier_count',),));
 ?>
 <nav class="nav-bar" role="navigation" id="nav-sidebar">

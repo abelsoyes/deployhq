@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-02-21 09:10:27
+/* Smarty version 4.3.4, created on 2025-03-03 13:43:46
   from '/Applications/MAMP/htdocs/TiendaAbel/modules/ps_faviconnotificationbo/views/templates/hook/displayBackOfficeHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67b834f36df188_89819105',
+  'unifunc' => 'content_67c5a402c01020_98577006',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b834f36df188_89819105 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5a402c01020_98577006 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
 >
   if (undefined !== ps_faviconnotificationbo) {

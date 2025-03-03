@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-02-21 09:10:28
+/* Smarty version 4.3.4, created on 2025-03-03 13:43:47
   from '/Applications/MAMP/htdocs/TiendaAbel/themes/javascript.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67b834f4163979_51461418',
+  'unifunc' => 'content_67c5a4035ec758_79195410',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_67b834f4163979_51461418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c5a4035ec758_79195410 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/Applications/MAMP/htdocs/TiendaAbel/vendor/smarty/smarty/libs/plugins/modifier.count.php','function'=>'smarty_modifier_count',),));
 if ((isset($_smarty_tpl->tpl_vars['js_def']->value)) && is_array($_smarty_tpl->tpl_vars['js_def']->value) && smarty_modifier_count($_smarty_tpl->tpl_vars['js_def']->value)) {
 echo '<script'; ?>
