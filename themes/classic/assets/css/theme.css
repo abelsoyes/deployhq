@@ -11,3 +11,9 @@
 div#product-description-short-1 p {
     color: #0020ff !important;
 }
+
+/* SOYMOD #94621 Cambio de diseño en página de producto*/
+
+span.control-label {
+    font-size: 18px;
+}
