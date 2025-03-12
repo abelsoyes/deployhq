@@ -73,6 +73,7 @@ class Soycolumnasbackoffice extends Module
             $this->registerHook('actionAdminOrdersListingFieldsModifier') &&
             $this->registerHook('actionOrderGridDefinitionModifier') &&
             $this->registerHook('actionOrderGridQueryBuilderModifier') &&
+            $this->registerHook('actionOrderGridDataModifier') &&
             $this->registerHook('displayAdminOrderContentOrder');
     }
 
@@ -236,19 +237,19 @@ class Soycolumnasbackoffice extends Module
         $definition->getColumns()->addAfter(
             'osname',
             (new DataColumn('order_total_without_tax'))
-                ->setName($this->l('Total sin impuestos'))
+                ->setName($this->l('Base imponible'))
                 ->setOptions([
                     'field' => 'order_total_without_tax',
                 ])
         );
     
-        // Agregar la columna para el total con impuestos
+        // Agregar la columna para el total de impuestos (total con impuestos - total sin impuestos)
         $definition->getColumns()->addAfter(
             'order_total_without_tax',
-            (new DataColumn('order_total_with_tax'))
-                ->setName($this->l('Total con impuestos'))
+            (new DataColumn('order_tax_total'))
+                ->setName($this->l('Total impuestos'))
                 ->setOptions([
-                    'field' => 'order_total_with_tax',
+                    'field' => 'order_tax_total',
                 ])
         );
     }
@@ -265,10 +266,25 @@ public function hookActionOrderGridQueryBuilderModifier(array $params)
     /** @var QueryBuilder $searchQueryBuilder */
     $searchQueryBuilder = $params['search_query_builder'];
 
-    // Añadir los totales sin impuestos y con impuestos desde la tabla ps_orders
-    $searchQueryBuilder->addSelect('o.total_products AS order_total_without_tax');
-    $searchQueryBuilder->addSelect('o.total_paid_tax_incl AS order_total_with_tax');
+    $searchQueryBuilder->addSelect('CONCAT(REPLACE(FORMAT(o.total_products, 2), ".", ","), " €") AS order_total_without_tax');
+    $searchQueryBuilder->addSelect('CONCAT(REPLACE(FORMAT(o.total_paid_tax_incl - o.total_products, 2), ".", ","), " €") AS order_tax_total');
+    
+    
+    
 }
+
+public function hookActionOrderGridDataModifier(array $params)
+{
+    foreach ($params['data'] as &$row) {
+        // Obtener la moneda del pedido
+        $currency = new Currency($row['id_currency']);
+
+        // Convertir a float y aplicar formato correcto con símbolo de moneda
+        $row['order_total_without_tax'] = Tools::displayPrice((float) $row['order_total_without_tax'], $currency);
+        $row['order_tax_total'] = Tools::displayPrice((float) $row['order_tax_total'], $currency);
+    }
+}
+
 
 
 

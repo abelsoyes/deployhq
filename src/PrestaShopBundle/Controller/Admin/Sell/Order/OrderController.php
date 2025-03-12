@@ -356,11 +356,12 @@ class OrderController extends FrameworkBundleAdminController
      */
     public function exportAction(OrderFilters $filters)
     {
-        $isB2bEnabled = $this->getConfiguration()->get('PS_B2B_ENABLE');
 
+        $isB2bEnabled = $this->getConfiguration()->get('PS_B2B_ENABLE');
+    
         $filters = new OrderFilters(['limit' => null] + $filters->all());
         $orderGrid = $this->get('prestashop.core.grid.factory.order')->getGrid($filters);
-
+    
         $headers = [
             'id_order' => $this->trans('ID', 'Admin.Global'),
             'reference' => $this->trans('Reference', 'Admin.Global'),
@@ -368,42 +369,53 @@ class OrderController extends FrameworkBundleAdminController
             'country_name' => $this->trans('Delivery', 'Admin.Global'),
             'customer' => $this->trans('Customer', 'Admin.Global'),
             'total_paid_tax_incl' => $this->trans('Total', 'Admin.Global'),
+            'order_total_without_tax' => $this->trans('Base imponible(Total sin impuestos)', 'Admin.Orderscustomers.Feature'),
+            'order_tax_total' => $this->trans('Total impuestos', 'Admin.Orderscustomers.Feature'),
             'payment' => $this->trans('Payment', 'Admin.Global'),
             'osname' => $this->trans('Status', 'Admin.Global'),
             'date_add' => $this->trans('Date', 'Admin.Global'),
         ];
-
+    
         if ($isB2bEnabled) {
             $headers['company'] = $this->trans('Company', 'Admin.Global');
         }
-
+    
         $data = [];
-
+    
         foreach ($orderGrid->getData()->getRecords()->all() as $record) {
+            // Asegurar que los valores sean floats para evitar problemas de formato
+            $total_paid_tax_incl = (float) str_replace(',', '.', $record['total_paid_tax_incl']);
+            $order_total_without_tax = (float) str_replace(',', '.', $record['order_total_without_tax']);
+            $order_tax_total = $total_paid_tax_incl - $order_total_without_tax;
+    
             $item = [
                 'id_order' => $record['id_order'],
                 'reference' => $record['reference'],
                 'new' => $record['new'],
                 'country_name' => $record['country_name'],
                 'customer' => $record['customer'],
-                'total_paid_tax_incl' => $record['total_paid_tax_incl'],
+                'total_paid_tax_incl' => number_format($total_paid_tax_incl, 2, ',', '.') . ' €',
+                'order_total_without_tax' => number_format($order_total_without_tax, 2, ',', '.') . ' €',
+                'order_tax_total' => number_format($order_tax_total, 2, ',', '.') . ' €',
                 'payment' => $record['payment'],
                 'osname' => $record['osname'],
                 'date_add' => $record['date_add'],
             ];
-
+    
             if ($isB2bEnabled) {
                 $item['company'] = $record['company'];
             }
-
+    
             $data[] = $item;
         }
-
+    
         return (new CsvResponse())
             ->setData($data)
             ->setHeadersData($headers)
             ->setFileName('order_' . date('Y-m-d_His') . '.csv');
     }
+    
+    
 
     /**
      * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))")

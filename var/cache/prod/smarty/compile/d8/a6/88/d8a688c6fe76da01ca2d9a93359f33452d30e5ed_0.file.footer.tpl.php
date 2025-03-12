@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.4, created on 2025-03-03 13:43:47
+/* Smarty version 4.3.4, created on 2025-03-04 10:37:13
   from '/Applications/MAMP/htdocs/TiendaAbel/Backoffice/themes/default/template/footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_67c5a4036ec705_44274639',
+  'unifunc' => 'content_67c6c9c9ed6913_34432942',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:error.tpl' => 1,
   ),
 ),false)) {
-function content_67c5a4036ec705_44274639 (Smarty_Internal_Template $_smarty_tpl) {
+function content_67c6c9c9ed6913_34432942 (Smarty_Internal_Template $_smarty_tpl) {
 ?>         <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['hook'][0], array( array('h'=>'displayAdminEndContent'),$_smarty_tpl ) );?>
 
 	</div>
