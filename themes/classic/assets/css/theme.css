@@ -17,3 +17,7 @@ div#product-description-short-1 p {
 span.control-label {
     font-size: 18px;
 }
+
+section#wrapper {
+    background: red;
+}
