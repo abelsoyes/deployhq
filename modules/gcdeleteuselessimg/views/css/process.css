@@ -1,0 +1,66 @@
+/**
+
+ * GcDeleteUselessImg
+
+ *
+
+ * @category  Prestashop
+
+ * @category  Module
+
+ * @author    Grégory Chartier <hello@gregorychartier.fr>
+
+ * @copyright 2018 Grégory Chartier (https://www.gregorychartier.fr)
+
+ * @license   Commercial license see license.txt
+
+ */
+
+
+
+#deleteimages label , #deletetypeimages label {margin-left: 10px;vertical-align: middle;}
+
+#deleteimages .process, #deletetypeimages .imagestype  { clear: both;display: inline-block;list-style: outside none none;margin-top: 12px !important;padding: 0;}
+
+#deleteimages .process > li , #deletetypeimages .imagestype > li {margin: 12px 0;}
+
+#deleteimages .processstates , #deletetypeimages .types {background: green none repeat scroll 0 0;border-radius: 3px;color: #fff !important;float: right;padding: 4px 13px;margin-left: 15px;}
+
+
+
+.form-wrapper.excute_btn, .form-wrapper.imagesType_btn  {margin-left: 15px;vertical-align: 4px;}
+
+#deleteimages .form-wrapper, #deletetypeimages .form-wrapper{display: inline-block;}
+
+.ui-progressbar{position: relative;}
+
+.progress-label, .typeprogress-label{position: absolute;left: 49%;top: 4px;font-weight: bold;text-shadow: 1px 1px 0 #fff; }
+
+.ui-draggable, .ui-droppable {background-position: top;}
+
+.deleteimg label {font-size: 14px;}
+
+.deleteimg .col-sm-6 {border-right: 1px solid #dadada;}
+
+.ui-progressbar-value { max-width: 100%; }
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+
+.deleteimg .col-sm-5 {float:left !important;}
+
+.deleteimg .col-sm-6 {border-right:none;}
+
+.deleteimg label {font-size: 9px;}
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+.deleteimg label {font-size: 11px;}
+
+}
+
